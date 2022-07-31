@@ -7,7 +7,7 @@
 
 template <typename type>
 type Graphics::GetData() {
-	GetData(data);
+	return GetData(data);
 }
 
 template <typename type>
@@ -27,7 +27,7 @@ void Graphics::SetWindowPointer(GLFWwindow* window, type* ptr) {
 
 template <typename type>
 type* Graphics::GetWindowPointer() {
-	GetWindowPointer<type*>(window);
+	return GetWindowPointer<type*>(window);
 }
 
 template <typename type>
