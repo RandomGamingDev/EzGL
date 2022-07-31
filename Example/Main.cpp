@@ -225,7 +225,7 @@ void Main::GraphicsCode(Graphics* graphics) {
 	VAO1.Bind();
 
 	while (!graphics->WindowShouldClose()) {
-		//std::cout << std::any_cast<const char*>(graphics->data);
+		std::cout << graphics->GetData<const char*>();
 		FBO	FBO1 = FBO();
 
 		Texture2D frameBufTex = Texture2D(static_cast<char*>(nullptr), graphics->width, graphics->height, GL_TEXTURE0, GL_RGBA, GL_RGB, GL_UNSIGNED_BYTE);

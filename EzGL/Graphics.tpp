@@ -7,7 +7,7 @@
 
 template <typename type>
 type Graphics::GetData() {
-	return GetData(data);
+	return GetData<type>(data);
 }
 
 template <typename type>
