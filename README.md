@@ -4,7 +4,7 @@
 
 Please note that this library isn't finished yet and is in prerelease or beta, or whatever u wanna call it. Basically, it isn't done yet. Why? Cause I'm gonna add more stuff ofc!
 
-Compile this with CMake. (This comes with a demo of how you can use this library and its different features this in the Example subdirectory, for which you'll have to create a test.png file in the directory next to the executable for the texture to show and put the shaders in the Shaders subdirectory next to the executable to disable the results from the 1st window in the demo)
+Compile this with CMake. (This comes with a demo of how you can use this library and its different features this in the Example subdirectory, for which you'll have to create a test.png file a directory named Textures in the directory next to the executable for the texture to show and put the shaders in the Shaders subdirectory next to the executable to disable the results from the 1st window in the demo)
 
 The default graphics library for this is glad
 
