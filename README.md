@@ -2,7 +2,9 @@
 
 ### A powerful graphics library designed to abstract away writing graphics code at 0 cost. Spend time building beautiful, lightway, easy to use, powerful graphics, not fighting the graphics API. 
 
-Compile this with CMake. (This comes with a demo of how to use this in EzALExe, for which you'll have to create a test.ogg file in the directory next to the executable for it to play)
+Please note that this library isn't finished yet and is in prerelease
+
+Compile this with CMake. (This comes with a demo of how you can use this library and its different features this in the Example subdirectory, for which you'll have to create a test.png file in the directory next to the executable for the texture to show)
 
 The default graphics library for this is glad
 
