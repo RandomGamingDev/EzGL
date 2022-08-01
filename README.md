@@ -23,7 +23,7 @@ I'd be glad to accept additions to EzGL to improve the library
 
 EzGL's structure is based on openGL
 
-Thanks to Victor Gordon for some of the code!
-You can find their channel here: https://www.youtube.com/c/VictorGordan/videos
-Their github here: https://github.com/VictorGordan
-And their code here: https://github.com/VictorGordan/opengl-tutorials
+Thanks to Victor Gordon for some of the code! <br/>
+You can find their channel here: https://www.youtube.com/c/VictorGordan/videos <br/>
+Their github here: https://github.com/VictorGordan <br/>
+And their code here: https://github.com/VictorGordan/opengl-tutorials <br/>
