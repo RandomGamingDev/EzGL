@@ -194,6 +194,10 @@ public:
 	#ifdef WINDOW_API_GLFW
 	void OnSetWindowRefreshEvent(GLFWwindow* window, GLFWwindowrefreshfun onRefresh);
 	#endif
+	static GLFWmonitor** GetMonitors(int* count);
+	static GLFWmonitor* GetPrimaryMonitor();
+	static const GLFWvidmode* GetVideoMode(GLFWmonitor* monitor);
+	static const GLFWvidmode* GetVideoModes(GLFWmonitor* monitor, int* count);
 };
 
 #include "Graphics.tpp"

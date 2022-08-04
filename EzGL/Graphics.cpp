@@ -332,6 +332,22 @@ void Graphics::OnSetWindowRefreshEvent(GLFWwindow* window, GLFWwindowrefreshfun 
 	glfwSetWindowRefreshCallback(window, onRefresh);
 }
 
+GLFWmonitor** Graphics::GetMonitors(int* count) {
+	return glfwGetMonitors(count);
+}
+
+GLFWmonitor* Graphics::GetPrimaryMonitor() {
+	return glfwGetPrimaryMonitor();
+}
+
+const GLFWvidmode* Graphics::GetVideoMode(GLFWmonitor* monitor) {
+	return glfwGetVideoMode(monitor);
+}
+
+const GLFWvidmode* Graphics::GetVideoModes(GLFWmonitor* monitor, int* count) {
+	return glfwGetVideoModes(monitor, count);
+}
+
 #endif
 
 #endif
