@@ -7,7 +7,7 @@ UBO::~UBO() {
 }
 
 void UBO::Unmap() {
-	glUnmapBuffer(GL_UNIFORM_BUFFER);
+	glUnmapBuffer(bufferType);
 }
 
 void UBO::Bind() {
@@ -15,11 +15,11 @@ void UBO::Bind() {
 }
 
 void UBO::Bind(GLuint ID) {
-	glBindBuffer(GL_UNIFORM_BUFFER, ID);
+	glBindBuffer(bufferType, ID);
 }
 
 void UBO::Unbind() {
-	glBindBuffer(GL_UNIFORM_BUFFER, 0);
+	glBindBuffer(bufferType, 0);
 }
 
 void UBO::BindBase(GLuint index) {
@@ -27,11 +27,11 @@ void UBO::BindBase(GLuint index) {
 }
 
 void UBO::BindBase(GLuint ID, GLuint index) {
-	glBindBufferBase(GL_UNIFORM_BUFFER, index, ID);
+	glBindBufferBase(bufferType, index, ID);
 }
 
 void UBO::UnbindBase(GLuint index) {
-	glBindBufferBase(GL_UNIFORM_BUFFER, index, 0);
+	glBindBufferBase(bufferType, index, 0);
 }
 
 
@@ -40,11 +40,11 @@ void UBO::BindRange(GLuint index, GLuint offset, GLsizeiptr size) {
 }
 
 void UBO::BindRange(GLuint ID, GLuint index, GLuint offset, GLsizeiptr size) {
-	glBindBufferRange(GL_UNIFORM_BUFFER, index, ID, offset, size);
+	glBindBufferRange(bufferType, index, ID, offset, size);
 }
 
 void UBO::UnbindRange(GLuint index, GLuint offset, GLsizeiptr size) {
-	glBindBufferRange(GL_UNIFORM_BUFFER, index, 0, offset, size);
+	glBindBufferRange(bufferType, index, 0, offset, size);
 }
 
 void UBO::Delete() {

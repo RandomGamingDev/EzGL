@@ -15,11 +15,11 @@ Graphics::~Graphics() {
 }
 
 void Graphics::Init(const char* title, int width, int height, GLFWmonitor* fullDisplay, void(*GraphicsCode)(Graphics*), std::any data) {
-	StaticInit(this, title, width, height, fullDisplay, GraphicsCode, data, &this->window, &this->title, &this->width, &this->height, &this->fullDisplay, &this->data);
+	StaticInit(this, title, width, height, fullDisplay, GraphicsCode, data, &this->window, &this->title, &this->width, &this->height, &this->data);
 }
 
-void Graphics::StaticInit(Graphics* graphics, const char* title, int width, int height, GLFWmonitor* fullDisplay, void(*GraphicsCode)(Graphics*), std::any data, GLFWwindow** windowVar, const char** titleVar, int* widthVar, int* heightVar, GLFWmonitor** fullDisplayVar, std::any* dataVar) {
-	CreateWindow(title, width, height, fullDisplay, windowVar, titleVar, widthVar, heightVar, fullDisplayVar);
+void Graphics::StaticInit(Graphics* graphics, const char* title, int width, int height, GLFWmonitor* fullDisplay, void(*GraphicsCode)(Graphics*), std::any data, GLFWwindow** windowVar, const char** titleVar, int* widthVar, int* heightVar, std::any* dataVar) {
+	CreateWindow(title, width, height, fullDisplay, windowVar, titleVar, widthVar, heightVar);
 	MakeContextCurrent(*windowVar);
 	LoadGL();
 	Viewport(0, 0, width, height);
@@ -32,12 +32,12 @@ void Graphics::WindowLibInit() {
 	glfwInit();
 }
 
-void Graphics::Draw(GLsizei size, GLenum type) {
-	glDrawElements(GL_TRIANGLES, size, type, 0);
+void Graphics::Draw(GLenum mode,GLsizei size, GLenum type) {
+	glDrawElements(mode, size, type, 0);
 }
 
-void Graphics::DrawInstanced(GLsizei size, GLenum type, GLsizei numInstances) {
-	glDrawElementsInstanced(GL_TRIANGLES, size, type, 0, numInstances);
+void Graphics::DrawInstanced(GLenum mode, GLsizei size, GLenum type, GLsizei numInstances) {
+	glDrawElementsInstanced(mode, size, type, 0, numInstances);
 }
 
 void Graphics::PollEvents() {
@@ -80,19 +80,18 @@ void Graphics::Blend(GLenum toBlend, GLenum howBlend) {
 	glBlendFunc(toBlend, howBlend);
 }
 
-void Graphics::Hint(int toHint, int value) {
+void Graphics::WindowHint(int toHint, int value) {
 	glfwWindowHint(toHint, value);
 }
 
 void Graphics::CreateWindow(const char* title, int width, int height, GLFWmonitor* fullDisplay) {
-	CreateWindow(title, width, height, fullDisplay, &this->window, &this->title, &this->width, &this->height, &this->fullDisplay);
+	CreateWindow(title, width, height, fullDisplay, &this->window, &this->title, &this->width, &this->height);
 }
 
-void Graphics::CreateWindow(const char* title, int width, int height, GLFWmonitor* fullDisplay, GLFWwindow** windowVar, const char** titleVar, int* widthVar, int* heightVar, GLFWmonitor** fullDisplayVar) {
+void Graphics::CreateWindow(const char* title, int width, int height, GLFWmonitor* fullDisplay, GLFWwindow** windowVar, const char** titleVar, int* widthVar, int* heightVar) {
 	*titleVar = title;
 	*widthVar = width;
 	*heightVar = height;
-	*fullDisplayVar = fullDisplay;
 	*windowVar = glfwCreateWindow(width, height, title, fullDisplay, nullptr);
 	if (windowVar == nullptr) {
 		std::cout << "Failed to create window\n";
@@ -142,6 +141,195 @@ int Graphics::WindowShouldClose(GLFWwindow* window) {
 
 void Graphics::Terminate() {
 	glfwTerminate();
+}
+
+void Graphics::SetWindowSize(int width, int height) {
+	SetWindowSize(window, width, height);
+}
+
+void Graphics::SetWindowSize(GLFWwindow* window, int width, int height) {
+	glfwSetWindowSize(window, width, height);
+}
+
+std::array<float, 2> Graphics::GetContentScale(float xScale, float yScale) {
+	return GetContentScale(window, xScale, yScale);
+}
+
+std::array<float, 2> Graphics::GetContentScale(GLFWwindow* window, float xScale, float yScale) {
+	glfwGetWindowContentScale(window, &xScale, &yScale);
+	return { xScale, yScale };
+}
+
+void Graphics::SetWindowSizeLimits(int minWidth, int minHeight, int maxWidth, int maxHeight) {
+	SetWindowSizeLimits(window, minWidth, minHeight, maxWidth, maxHeight);
+}
+
+void Graphics::SetWindowSizeLimits(GLFWwindow* window, int minWidth, int minHeight, int maxWidth, int maxHeight) {
+	glfwSetWindowSizeLimits(window, minWidth, minHeight, maxWidth, maxHeight);
+}
+
+void Graphics::SetWindowPos(int xPos, int yPos) {
+	SetWindowPos(window, xPos, yPos);
+}
+
+void Graphics::SetWindowPos(GLFWwindow* window, int xPos, int yPos) {
+	glfwSetWindowPos(window, xPos, yPos);
+}
+
+void Graphics::OnWindowMoveEvent(GLFWwindowposfun onMove) {
+	OnWindowMoveEvent(window, onMove);
+}
+
+void Graphics::OnWindowMoveEvent(GLFWwindow* window, GLFWwindowposfun onMove) {
+	glfwSetWindowPosCallback(window, onMove);
+}
+
+void Graphics::SetWindowIcon(int size, GLFWimage images[]) {
+	SetWindowIcon(window, size, images);
+}
+
+void Graphics::SetWindowIcon(GLFWwindow* window, int size, GLFWimage images[]) {
+	glfwSetWindowIcon(window, size, images);
+}
+
+GLFWmonitor* Graphics::GetWindowMonitor() {
+	return GetWindowMonitor(window);
+}
+
+GLFWmonitor* Graphics::GetWindowMonitor(GLFWwindow* window) {
+	return glfwGetWindowMonitor(window);
+}
+
+void Graphics::SetWindowMonitor(GLFWmonitor* monitor, int xPos, int yPos, int width, int height, int refreshRate) {
+	GetWindowMonitor(window, monitor, xPos, yPos, width, height, refreshRate);
+}
+
+void Graphics::GetWindowMonitor(GLFWwindow* window, GLFWmonitor* monitor, int xPos, int yPos, int width, int height, int refreshRate) {
+	glfwSetWindowMonitor(window, monitor, xPos, yPos, width, height, refreshRate);
+}
+
+void Graphics::IconifyWindow() {
+	IconifyWindow(window);
+}
+
+void Graphics::IconifyWindow(GLFWwindow* window) {
+	glfwIconifyWindow(window);
+}
+
+void Graphics::RestoreWindow() {
+	RestoreWindow(window);
+}
+
+void Graphics::RestoreWindow(GLFWwindow* window) {
+	glfwRestoreWindow(window);
+}
+
+void Graphics::OnSetWindowIconificationEvent(GLFWwindowiconifyfun onIconification) {
+	OnSetWindowIconificationEvent(window, onIconification);
+}
+
+void Graphics::OnSetWindowIconificationEvent(GLFWwindow* window, GLFWwindowiconifyfun onIconification) {
+	glfwSetWindowIconifyCallback(window, onIconification);
+}
+
+void Graphics::MaximizeWindow() {
+	MaximizeWindow(window);
+}
+
+void Graphics::MaximizeWindow(GLFWwindow* window) {
+	glfwMaximizeWindow(window);
+}
+
+void Graphics::OnSetWindowwMaxificationEvent(GLFWwindowmaximizefun onMaxification) {
+	OnSetWindowMaxificationEvent(window, onMaxification);
+}
+
+void Graphics::OnSetWindowMaxificationEvent(GLFWwindow* window, GLFWwindowmaximizefun onMaxification) {
+	glfwSetWindowMaximizeCallback(window, onMaxification);
+}
+
+void Graphics::HideWindow() {
+	HideWindow(window);
+}
+
+void Graphics::HideWindow(GLFWwindow* window) {
+	glfwHideWindow(window);
+}
+
+void Graphics::ShowWindow() {
+	ShowWindow(window);
+}
+
+void Graphics::ShowWindow(GLFWwindow* window) {
+	glfwShowWindow(window);
+}
+
+int Graphics::GetWindowAttrib(int attrib) {
+	return GetWindowAttrib(window, attrib);
+}
+
+int Graphics::GetWindowAttrib(GLFWwindow* window, int attrib) {
+	return glfwGetWindowAttrib(window, attrib);
+}
+
+void Graphics::FocusWindow() {
+	FocusWindow(window);
+}
+
+void Graphics::FocusWindow(GLFWwindow* window) {
+	glfwFocusWindow(window);
+}
+
+void Graphics::OnSetWindowFocusEvent(GLFWwindowfocusfun onFocus) {
+	OnSetWindowFocusEvent(window, onFocus);
+}
+
+void Graphics::OnSetWindowFocusEvent(GLFWwindow* window, GLFWwindowfocusfun onFocus) {
+	glfwSetWindowFocusCallback(window, onFocus);
+}
+
+void Graphics::SetWindowAttrib(int attrib, int value) {
+	SetWindowAttrib(window, attrib, value);
+}
+
+void Graphics::SetWindowAttrib(GLFWwindow* window, int attrib, int value) {
+	glfwSetWindowAttrib(window, attrib, value);
+}
+
+void Graphics::RequestWindowAttention() {
+	RequestWindowAttention(window);
+}
+
+void Graphics::RequestWindowAttention(GLFWwindow* window) {
+	glfwRequestWindowAttention(window);
+}
+
+void Graphics::SwapInterval(int interval) {
+	glfwSwapInterval(interval);
+}
+
+void Graphics::SetWindowOpacity(float opacity) {
+	SetWindowOpacity(window, opacity);
+}
+
+void Graphics::SetWindowOpacity(GLFWwindow* window, float opacity) {
+	glfwSetWindowOpacity(window, 0.5f);
+}
+
+void Graphics::OnWindowCloseEvent(GLFWwindowclosefun onClose) {
+	OnWindowCloseEvent(window, onClose);
+}
+
+void Graphics::OnWindowCloseEvent(GLFWwindow* window, GLFWwindowclosefun onClose) {
+	glfwSetWindowCloseCallback(window, onClose);
+}
+
+void Graphics::OnSetWindowRefreshEvent(GLFWwindowrefreshfun onRefresh) {
+	OnSetWindowRefreshEvent(window, onRefresh);
+}
+
+void Graphics::OnSetWindowRefreshEvent(GLFWwindow* window, GLFWwindowrefreshfun onRefresh) {
+	glfwSetWindowRefreshCallback(window, onRefresh);
 }
 
 #endif

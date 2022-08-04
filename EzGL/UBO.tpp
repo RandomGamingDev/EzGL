@@ -24,29 +24,29 @@ void UBO::Init(GLuint* ID, type* data, GLsizeiptr size, GLenum howUse, const GLc
 
 template <typename type>
 void UBO::Data(type* data, GLsizeiptr size, GLenum howUse) {
-	glBufferData(GL_UNIFORM_BUFFER, size, data, howUse);
+	glBufferData(bufferType, size, data, howUse);
 }
 
 template <typename type>
 void UBO::SubData(type* data, GLintptr offset, GLsizeiptr size) {
-	glBufferSubData(GL_UNIFORM_BUFFER, offset, size, data);
+	glBufferSubData(bufferType, offset, size, data);
 }
 
 template <typename type>
 type* UBO::GetSubData(GLintptr offset, GLsizeiptr size) {
 	void* data = new char[size];
-	glGetBufferSubData(GL_UNIFORM_BUFFER, offset, size, data);
+	glGetBufferSubData(bufferType, offset, size, data);
 	return static_cast<type*>(data);
 }
 
 template <typename type>
 type* UBO::Map(GLenum accessType) {
-	return static_cast<type*>(glMapBuffer(GL_UNIFORM_BUFFER, accessType));
+	return static_cast<type*>(glMapBuffer(bufferType, accessType));
 }
 
 template <typename type>
 type* UBO::MapRange(GLintptr offset, GLsizeiptr size, GLbitfield accessType) {
-	return static_cast<type*>(glMapBufferRange(GL_UNIFORM_BUFFER, offset, size, accessType));
+	return static_cast<type*>(glMapBufferRange(bufferType, offset, size, accessType));
 }
 
 #endif

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <any>
+#include <array>
 
 #ifdef GL_API_GLAD_OPENGL_3
 #include <glad/glad.h>
@@ -23,7 +24,6 @@ public:
 	const char* title;
 	int width, height;
 	#ifdef WINDOW_API_GLFW
-	GLFWmonitor* fullDisplay;
 	#endif
 	Camera camera;
 	std::any data;
@@ -36,12 +36,12 @@ public:
 
 	#ifdef WINDOW_API_GLFW
 	void Init(const char* title, int width, int height, GLFWmonitor* fullDisplay, void(*GraphicsCode)(Graphics*), std::any data);
-	static void StaticInit(Graphics* graphics, const char* title, int width, int height, GLFWmonitor* fullDisplay, void(*GraphicsCode)(Graphics*), std::any data, GLFWwindow** windowVar, const char** titleVar, int* widthVar, int* heightVar, GLFWmonitor** fullDisplayVar, std::any* dataVar);
+	static void StaticInit(Graphics* graphics, const char* title, int width, int height, GLFWmonitor* fullDisplay, void(*GraphicsCode)(Graphics*), std::any data, GLFWwindow** windowVar, const char** titleVar, int* widthVar, int* heightVar, std::any* dataVar);
 	#endif
 	static void WindowLibInit();
 	#ifdef GL_API_GLAD_OPENGL_3
-	static void Draw(GLsizei size, GLenum type);
-	static void DrawInstanced(GLsizei size, GLenum type, GLsizei numInstances);
+	static void Draw(GLenum mode, GLsizei size, GLenum type);
+	static void DrawInstanced(GLenum mode, GLsizei size, GLenum type, GLsizei numInstances);
 	#endif
 	static void PollEvents();
 	#ifdef WINDOW_API_GLFW
@@ -59,10 +59,10 @@ public:
 	static void Clear(GLbitfield toClear);
 	static void Blend(GLenum toBlend, GLenum howBlend);
 	#endif
-	static void Hint(int toHint, int value);
+	static void WindowHint(int toHint, int value);
 	#ifdef WINDOW_API_GLFW
 	void CreateWindow(const char* title, int width, int height, GLFWmonitor* fullDisplay);
-	static void CreateWindow(const char* title, int width, int height, GLFWmonitor* fullDisplay, GLFWwindow** windowVar, const char** titleVar, int* widthVar, int* heightVar, GLFWmonitor** fullDisplayVar);
+	static void CreateWindow(const char* title, int width, int height, GLFWmonitor* fullDisplay, GLFWwindow** windowVar, const char** titleVar, int* widthVar, int* heightVar);
 	#endif
 	void MakeContextCurrent();
 	#ifdef WINDOW_API_GLFW
@@ -100,6 +100,99 @@ public:
 	#ifdef WINDOW_API_GLFW
 	template <typename type>
 	static type* GetWindowPointer(GLFWwindow* window);
+	#endif
+	void SetWindowSize(int width, int height);
+	#ifdef WINDOW_API_GLFW
+	static void SetWindowSize(GLFWwindow* window, int width, int height);
+	#endif
+	std::array<float, 2> GetContentScale(float xScale, float yScale);
+	#ifdef WINDOW_API_GLFW
+	static std::array<float, 2> GetContentScale(GLFWwindow* window, float xScale, float yScale);
+	#endif
+	void SetWindowSizeLimits(int minWidth, int minHeight, int maxWidth, int maxHeight);
+	#ifdef WINDOW_API_GLFW
+	static void SetWindowSizeLimits(GLFWwindow* window, int minWidth, int minHeight, int maxWidth, int maxHeight);
+	#endif
+	void SetWindowPos(int xPos, int yPos);
+	#ifdef WINDOW_API_GLFW
+	static void SetWindowPos(GLFWwindow* window, int xPos, int yPos);
+	#endif
+	void OnWindowMoveEvent(GLFWwindowposfun onMove);
+	#ifdef WINDOW_API_GLFW
+	static void OnWindowMoveEvent(GLFWwindow* window, GLFWwindowposfun onMove);
+	#endif
+	void SetWindowIcon(int size, GLFWimage images[]);
+	#ifdef WINDOW_API_GLFW
+	static void SetWindowIcon(GLFWwindow* window, int size, GLFWimage images[]);
+	#endif
+	GLFWmonitor* GetWindowMonitor();
+	#ifdef WINDOW_API_GLFW
+	static GLFWmonitor* GetWindowMonitor(GLFWwindow* windoww);
+	#endif
+	void SetWindowMonitor(GLFWmonitor* monitor, int xPos, int yPos, int width, int height, int refreshRate);
+	#ifdef WINDOW_API_GLFW
+	static void GetWindowMonitor(GLFWwindow* window, GLFWmonitor* monitor, int xPos, int yPos, int width, int height, int refreshRate);
+	#endif
+	void IconifyWindow();
+	#ifdef WINDOW_API_GLFW
+	static void IconifyWindow(GLFWwindow* window);
+	#endif
+	void RestoreWindow();
+	#ifdef WINDOW_API_GLFW
+	static void RestoreWindow(GLFWwindow* window);
+	#endif
+	void OnSetWindowIconificationEvent(GLFWwindowiconifyfun onIconification);
+	#ifdef WINDOW_API_GLFW
+	static void OnSetWindowIconificationEvent(GLFWwindow* window, GLFWwindowiconifyfun onIconification);
+	#endif
+	void MaximizeWindow();
+	#ifdef WINDOW_API_GLFW
+	static void MaximizeWindow(GLFWwindow* window);
+	#endif
+	void OnSetWindowwMaxificationEvent(GLFWwindowmaximizefun onMaxification);
+	#ifdef WINDOW_API_GLFW
+	static void OnSetWindowMaxificationEvent(GLFWwindow* window, GLFWwindowmaximizefun onMaxification);
+	#endif
+	void HideWindow();
+	#ifdef WINDOW_API_GLFW
+	static void HideWindow(GLFWwindow* window);
+	#endif
+	void ShowWindow();
+	#ifdef WINDOW_API_GLFW
+	static void ShowWindow(GLFWwindow* window);
+	#endif
+	int GetWindowAttrib(int attrib);
+	#ifdef WINDOW_API_GLFW
+	static int GetWindowAttrib(GLFWwindow* window, int attrib);
+	#endif
+	void FocusWindow();
+	#ifdef WINDOW_API_GLFW
+	static void FocusWindow(GLFWwindow* window);
+	#endif
+	void OnSetWindowFocusEvent(GLFWwindowfocusfun onFocus);
+	#ifdef WINDOW_API_GLFW
+	static void OnSetWindowFocusEvent(GLFWwindow* window, GLFWwindowfocusfun onFocus);
+	#endif
+	void SetWindowAttrib(int attrib, int value);
+	#ifdef WINDOW_API_GLFW
+	static void SetWindowAttrib(GLFWwindow* window, int attrib, int value);
+	#endif
+	void RequestWindowAttention();
+	#ifdef WINDOW_API_GLFW
+	static void RequestWindowAttention(GLFWwindow* window);
+	#endif
+	static void SwapInterval(int interval);
+	void SetWindowOpacity(float opacity);
+	#ifdef WINDOW_API_GLFW
+	static void SetWindowOpacity(GLFWwindow* window, float opacity);
+	#endif
+	void OnWindowCloseEvent(GLFWwindowclosefun onClose);
+	#ifdef WINDOW_API_GLFW
+	static void OnWindowCloseEvent(GLFWwindow* window, GLFWwindowclosefun onClose);
+	#endif
+	void OnSetWindowRefreshEvent(GLFWwindowrefreshfun onRefresh);
+	#ifdef WINDOW_API_GLFW
+	void OnSetWindowRefreshEvent(GLFWwindow* window, GLFWwindowrefreshfun onRefresh);
 	#endif
 };
 

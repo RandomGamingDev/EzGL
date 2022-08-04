@@ -7,7 +7,7 @@ Texture2D::~Texture2D() {
 }
 
 void Texture2D::TexParameter(GLenum parameter, GLint value) {
-	glTexParameteri(GL_TEXTURE_2D, parameter, value);
+	glTexParameteri(bufferType, parameter, value);
 }
 
 void Texture2D::TexUnit(GLuint shader, const char* uniform, GLint unit) {
@@ -20,11 +20,11 @@ void Texture2D::Bind() {
 }
 
 void Texture2D::Bind(GLuint ID) {
-	glBindTexture(GL_TEXTURE_2D, ID);
+	glBindTexture(bufferType, ID);
 }
 
 void Texture2D::Unbind() {
-	glBindTexture(GL_TEXTURE_2D, 0);
+	glBindTexture(bufferType, 0);
 }
 
 void Texture2D::Delete() {

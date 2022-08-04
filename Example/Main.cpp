@@ -165,8 +165,6 @@ void Main::GraphicsCode(Graphics* graphics) {
 	};
 	Shader FBOshader(FBOshaders, arrsize(FBOshaders));
 	FBOshader.Activate();
-
-	FBOshader.Activate();
 	glUniform1i(glGetUniformLocation(FBOshader.ID, "screenTexture"), 0);
 
 	VAO VAO1;
@@ -199,11 +197,6 @@ void Main::GraphicsCode(Graphics* graphics) {
 	glEnableVertexAttribArray(1);
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
 
-
-	auto fboStatus = glCheckFramebufferStatus(GL_FRAMEBUFFER);
-	if (fboStatus != GL_FRAMEBUFFER_COMPLETE)
-		std::cout << "Framebuffer error:" << fboStatus << std::endl;
-
 	int width, height, numColorChannels;
 	stbi_uc* bytes = stbi_load((parentDir + "/Textures/test.png").c_str(), &width, &height, &numColorChannels, 0);
 	Texture2D brickTex(bytes, width, height, GL_TEXTURE0, GL_RGBA, GL_RGB, GL_UNSIGNED_BYTE);
@@ -224,56 +217,106 @@ void Main::GraphicsCode(Graphics* graphics) {
 	VBO1.Bind();
 	VAO1.Bind();
 
+	/*
+	FBO	FBO1 = FBO();
+
+	//Texture2D frameBufTex = Texture2D(static_cast<char*>(nullptr), graphics->width, graphics->height, GL_TEXTURE0, GL_RGBA, GL_RGB, GL_UNSIGNED_BYTE);
+	Texture2DMultisample frameBufTex = Texture2DMultisample(graphics->width, graphics->height, GL_TEXTURE0, 8, GL_RGB, GL_TRUE);
+	frameBufTex.TexParameter(GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	frameBufTex.TexParameter(GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	frameBufTex.TexParameter(GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	frameBufTex.TexParameter(GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	FBO1.LinkTexture(frameBufTex.ID, GL_TEXTURE_2D_MULTISAMPLE, GL_COLOR_ATTACHMENT9);
+
+	RBOMultisample RBO1 = RBOMultisample(GL_DEPTH24_STENCIL8, graphics->width, graphics->height, 8);
+	FBO1.LinkRBO(RBO1.ID, GL_DEPTH_STENCIL_ATTACHMENT);
+
+	FBO::Unbind();
+	*/
+
+	const GLsizei samples = 8;
+
+	FBO FBO1 = FBO();
+	Texture2DMultisample FBO1Tex = Texture2DMultisample(graphics->width, graphics->height, GL_TEXTURE0, samples, GL_RGB, GL_TRUE);
+	glTexParameteri(GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE); // Prevents edge bleeding
+	glTexParameteri(GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE); // Prevents edge bleeding
+	FBO1.LinkTexture2D(FBO1Tex.ID, GL_TEXTURE_2D_MULTISAMPLE, GL_COLOR_ATTACHMENT0);
+	GLenum err;
+	if ((err = glGetError()) != GL_NO_ERROR)
+		std::cout << "Flag1ERROR: " << err << std::endl;
+
+	// Create Render Buffer Object
+	RBOMultisample RBO1 = RBOMultisample(GL_DEPTH24_STENCIL8, graphics->width, graphics->height, samples);
+	FBO1.LinkRBO(RBO1.ID, GL_DEPTH_STENCIL_ATTACHMENT);
+	
+	FBO FBO2 = FBO();
+
+	Texture2D FBO2Tex = Texture2D(static_cast<char*>(nullptr), graphics->width, graphics->height, GL_TEXTURE0, GL_RGB, GL_RGB, GL_UNSIGNED_BYTE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	FBO2.LinkTexture2D(FBO2Tex.ID, GL_TEXTURE_2D, GL_COLOR_ATTACHMENT0);
+	
+	GLenum fboStatus = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+	if (fboStatus != GL_FRAMEBUFFER_COMPLETE)
+		std::cout << "ERROR WITH THE FBO: " << fboStatus << '\n';
+
 	while (!graphics->WindowShouldClose()) {
-		std::cout << graphics->GetData<const char*>();
-		FBO	FBO1 = FBO();
+		//std::cout << graphics->GetData<const char*>();
 
-		Texture2D frameBufTex = Texture2D(static_cast<char*>(nullptr), graphics->width, graphics->height, GL_TEXTURE0, GL_RGBA, GL_RGB, GL_UNSIGNED_BYTE);
-		frameBufTex.TexParameter(GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-		frameBufTex.TexParameter(GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-		FBO1.LinkTexture(frameBufTex.ID);
-
-		RBO RBO1 = RBO(GL_DEPTH24_STENCIL8, graphics->width, graphics->height);
-		FBO1.LinkRBO(RBO1.ID);
+		// Get post processing framebuffer working now
 
 		VBO1.Bind();
 		VAO1.Bind();
+		brickTex.Bind();
 		graphics->SetTitle("ballz");
-		FBO1.Bind();
 
+		glBindFramebuffer(GL_FRAMEBUFFER, FBO1.ID);
 		graphics->ClearColor(0.07f, 0.13f, 0.17f, 1.0f);
 		graphics->Clear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		graphics->Enable(GL_DEPTH_TEST);
 
-		shader.Activate();
-
 		Inputs(&graphics->camera, graphics->window);
+
+		//Found the problem
+		shader.Activate();
 		graphics->camera.Matrix(45.0f, 0.1f, 100.0f, shader.ID, "camMatrix");
 
-		brickTex.Bind();
-		
 		vertices[0] += 0.0001f;
 
 		void* ptr = VBO1.Map(GL_WRITE_ONLY);
 		memcpy(ptr, vertices, sizeof(vertices));
 		VBO1.Unmap();
 
-		graphics->DrawInstanced(arrsize(indices), GL_UNSIGNED_INT, 2);
-		
+		if ((err = glGetError()) != GL_NO_ERROR)
+			std::cout << "Flag0ERROR: " << err << std::endl;
+
+		//shader.Activate();
+		graphics->DrawInstanced(GL_TRIANGLES, arrsize(indices), GL_UNSIGNED_INT, 2);
+
+		VAO1.Unbind();
+		VBO1.Unbind();
+
+		FBO1.BindRead();
+		FBO2.BindDraw();
+		FBO::Blit(0, 0, graphics->width, graphics->height, 0, 0, graphics->width, graphics->height, GL_COLOR_BUFFER_BIT, GL_NEAREST);
+
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
 		brickTex.Unbind();
 		
 		VBO1.Unbind();
 		VAO1.Unbind();
 
-		FBO1.Unbind();
-
 		FBOshader.Activate();
 		glBindVertexArray(rectVAO);
 		graphics->Disable(GL_DEPTH_TEST);
-		frameBufTex.Bind();
+		//glBindBuffer(GL_ARRAY_BUFFER, rectVBO);
+		glBindTexture(GL_TEXTURE_2D, FBO2Tex.ID);
 		glDrawArrays(GL_TRIANGLES, 0, 6);
-		glBindVertexArray(0);
-		frameBufTex.Unbind();
 
 		graphics->PollEvents();
 		graphics->OnResizeEvent(OnResize);

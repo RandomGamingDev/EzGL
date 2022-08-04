@@ -27,12 +27,12 @@ void EBO<type>::Init(GLuint* ID, type* indices, GLsizeiptr size, GLenum howUse) 
 
 template <typename type>
 void EBO<type>::Data(type* indices, GLsizeiptr size, GLenum howUse) {
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, size, indices, howUse);
+	glBufferData(bufferType, size, indices, howUse);
 }
 
 template <typename type>
 void EBO<type>::SubData(type* indices, GLintptr offset, GLsizeiptr size) {
-	glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, offset, size, indices);
+	glBufferSubData(bufferType, offset, size, indices);
 }
 
 template <typename type>
@@ -44,17 +44,17 @@ type* EBO<type>::GetSubData(GLintptr offset, GLsizeiptr size) {
 
 template <typename type>
 type* EBO<type>::Map(GLenum accessType) {
-	return static_cast<type*>(glMapBuffer(GL_ELEMENT_ARRAY_BUFFER, accessType));
+	return static_cast<type*>(glMapBuffer(bufferType, accessType));
 }
 
 template <typename type>
 type* EBO<type>::MapRange(GLintptr offset, GLsizeiptr size, GLbitfield accessType) {
-	return static_cast<type*>(glMapBufferRange(GL_ELEMENT_ARRAY_BUFFER, offset, size, accessType));
+	return static_cast<type*>(glMapBufferRange(bufferType, offset, size, accessType));
 }
 
 template <typename type>
 void EBO<type>::Unmap() {
-	glUnmapBuffer(GL_ELEMENT_ARRAY_BUFFER);
+	glUnmapBuffer(bufferType);
 }
 
 template <typename type>
@@ -64,12 +64,12 @@ void EBO<type>::Bind() {
 
 template <typename type>
 void EBO<type>::Bind(GLuint ID) {
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ID);
+	glBindBuffer(bufferType, ID);
 }
 
 template <typename type>
 void EBO<type>::Unbind() {
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	glBindBuffer(bufferType, 0);
 }
 
 template <typename type>

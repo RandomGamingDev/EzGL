@@ -1,31 +1,41 @@
-#ifndef TEXTURE_HEADER
-#define TEXTURE_HEADER
+#ifndef TEXTURE2DMULTISAMPLE_HEADER
+#define TEXTURE2DMULTISAMPLE_HEADER
 
-#include<glad/glad.h>
+#ifdef GL_API_GLAD_OPENGL_3
+#include <glad/glad.h>
+#endif
 
 class Texture2DMultisample {
 public:
+	#ifdef GL_API_GLAD_OPENGL_3
+	static const GLenum bufferType = GL_TEXTURE_2D_MULTISAMPLE;
 	GLuint ID;
 	GLint width;
 	GLint height;
+	#endif
 
-	template <typename type>
-	Texture2DMultisample(type* bytes, GLsizei width, GLsizei height, GLenum slot, GLenum format, GLenum pixelType);
+	#ifdef GL_API_GLAD_OPENGL_3
+	Texture2DMultisample(GLsizei width, GLsizei height, GLenum slot, GLsizei samples, GLint internalFormat, GLboolean fixedSampleLocations);
+	#endif
 	~Texture2DMultisample();
 
-	template <typename type>
-	void Init(type* bytes, GLint width, GLsizei height, GLenum slot, GLenum format, GLenum pixelType);
-	template <typename type>
-	static void Init(GLuint* ID, type* bytes, GLsizei width, GLsizei height, GLenum slot, GLenum format, GLenum pixelType, GLsizei* widthVar, GLsizei* heightVar);
+	#ifdef GL_API_GLAD_OPENGL_3
+	void Init(GLint width, GLsizei height, GLenum slot, GLsizei samples, GLint internalFormat, GLboolean fixedSampleLocations);
+	static void Init(GLuint* ID, GLsizei width, GLsizei height, GLenum slot, GLsizei samples, GLint internalFormat, GLboolean fixedSampleLocations, GLsizei* widthVar, GLsizei* heightVar);
 	static void TexParameter(GLenum parameter, GLint value);
 	void TexUnit(GLuint shader, const char* uniform, GLint unit);
+	void Data(GLsizei samples, GLint internalFormat, GLboolean fixedSampleLocations);
+	static void Data(GLsizei width, GLsizei height, GLsizei samples, GLint internalFormat, GLboolean fixedSampleLocations);
+	#endif
 	void Bind();
+	#ifdef GL_API_GLAD_OPENGL_3
 	static void Bind(GLuint ID);
+	#endif
 	static void Unbind();
 	void Delete();
+	#ifdef GL_API_GLAD_OPENGL_3
 	static void Delete(GLuint* ID);
+	#endif
 };
-
-#include "Texture2D.tpp"
 
 #endif

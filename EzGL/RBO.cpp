@@ -27,7 +27,7 @@ void RBO::Data(GLenum type, GLsizei width, GLsizei height) {
 void RBO::Data(GLenum type, GLsizei width, GLsizei height, GLsizei* widthVar, GLsizei* heightVar) {
 	*widthVar = width;
 	*heightVar = height;
-	glRenderbufferStorage(GL_RENDERBUFFER, type, width, height);
+	glRenderbufferStorage(bufferType, type, width, height);
 }
 
 void RBO::Bind() {
@@ -35,11 +35,11 @@ void RBO::Bind() {
 }
 
 void RBO::Bind(GLuint ID) {
-	glBindRenderbuffer(GL_RENDERBUFFER, ID);
+	glBindRenderbuffer(bufferType, ID);
 }
 
 void RBO::Unbind() {
-	glBindRenderbuffer(GL_RENDERBUFFER, 0);
+	glBindRenderbuffer(bufferType, 0);
 }
 
 void RBO::Delete() {

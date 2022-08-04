@@ -8,6 +8,7 @@
 class UBO {
 public:
 	#ifdef GL_API_GLAD_OPENGL_3
+	static const GLenum bufferType = GL_UNIFORM_BUFFER;
 	GLuint ID;
 	#endif
 

@@ -8,6 +8,7 @@
 class RBO {
 public:
 	#ifdef GL_API_GLAD_OPENGL_3
+	static const GLenum bufferType = GL_RENDERBUFFER;
 	GLuint ID;
 	GLsizei width;
 	GLsizei height;

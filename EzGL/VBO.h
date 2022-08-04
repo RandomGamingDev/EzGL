@@ -9,6 +9,7 @@ template<class type>
 class VBO {
 public:
 	#ifdef GL_API_GLAD_OPENGL_3
+	static const GLenum bufferType = GL_ARRAY_BUFFER;
 	GLuint ID;
 	#endif
 	

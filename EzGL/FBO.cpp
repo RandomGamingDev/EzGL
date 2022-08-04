@@ -28,19 +28,57 @@ void FBO::Bind() {
 } 
 
 void FBO::Bind(GLuint ID) {
-	glBindFramebuffer(GL_FRAMEBUFFER, ID);
+	glBindFramebuffer(bufferType, ID);
 }
 
 void FBO::Unbind() {
-	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	glBindFramebuffer(bufferType, 0);
 }
 
-void FBO::LinkTexture(GLuint texture) {
-	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture, 0);
+void FBO::BindRead() {
+	BindRead(ID);
 }
 
-void FBO::LinkRBO(GLuint RBO) {
-	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, RBO);
+void FBO::BindRead(GLuint ID) {
+	glBindFramebuffer(GL_READ_FRAMEBUFFER, ID);
+}
+
+void FBO::UnbindRead() {
+	glBindFramebuffer(GL_READ_FRAMEBUFFER, 0);
+}
+
+void FBO::BindDraw() {
+	BindDraw(ID);
+}
+
+void FBO::BindDraw(GLuint ID) {
+	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, ID); 
+}
+
+void FBO::UnbindDraw() {
+	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
+}
+
+void FBO::LinkTexture2D(GLuint texture, GLenum texType, GLenum attachment) {
+	glFramebufferTexture2D(bufferType, attachment, texType, texture, 0);
+}
+
+void FBO::LinkRBO(GLuint RBO, GLenum attachment) {
+	glFramebufferRenderbuffer(bufferType, attachment, GL_RENDERBUFFER, RBO);
+}
+
+void FBO::Blit(GLint srcBottomLeftX,
+	GLint srcBottomLeftY,
+	GLint srcTopRightX,
+	GLint srcTopRightY,
+	GLint dstBottomLeftX,
+	GLint dstBottomLeftY,
+	GLint dstTopRightX,
+	GLint dstTopRightY,
+	GLbitfield mask,
+	GLenum filter
+) {
+	glBlitFramebuffer(srcBottomLeftX, srcBottomLeftY, srcTopRightX, srcTopRightY, dstBottomLeftX, dstBottomLeftY, dstTopRightX, dstTopRightY, mask, filter);
 }
 
 void FBO::Delete() {

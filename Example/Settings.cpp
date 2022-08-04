@@ -11,9 +11,9 @@
 int main() {
 	Main::Awake();
 	Graphics::WindowLibInit();
-	Graphics::Hint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	Graphics::Hint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	Graphics::Hint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	Graphics::WindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+	Graphics::WindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	Graphics::WindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	stbi_set_flip_vertically_on_load(true);
 	Graphics graphics;
 	const char* testString = "testString";

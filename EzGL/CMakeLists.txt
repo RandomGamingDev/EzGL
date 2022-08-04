@@ -33,10 +33,17 @@ add_library(EzGL
 	EzGL.h
 	GLlibs.h
 	EzGLlibs.h
-)
-#Texture2DMultisample.cpp
-#Texture2DMultisample.h
-#Texture2DMultisample.tpp
+	Texture2DMultisample.cpp
+	Texture2DMultisample.h
+	RBOMultisample.cpp
+	RBOMultisample.h
+	Texture1D.cpp
+	Texture1D.h
+	Texture1D.tpp
+	Texture3D.cpp
+	Texture3D.h
+	Texture3D.tpp
+ )
 
 target_compile_definitions(EzGL PUBLIC GL_API_GLAD_OPENGL_3)
 target_compile_definitions(EzGL PUBLIC WINDOW_API_GLFW)

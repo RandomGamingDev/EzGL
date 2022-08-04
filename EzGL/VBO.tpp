@@ -27,12 +27,12 @@ void VBO<type>::Init(GLuint* ID, type* vertices, GLsizeiptr size, GLenum howUse)
 
 template <typename type>
 void VBO<type>::Data(type* vertices, GLsizeiptr size, GLenum howUse) {
-	glBufferData(GL_ARRAY_BUFFER, size, vertices, howUse);
+	glBufferData(bufferType, size, vertices, howUse);
 }
 
 template <typename type>
 void VBO<type>::SubData(type* vertices, GLintptr offset, GLsizeiptr size) {
-	glBufferSubData(GL_ARRAY_BUFFER, offset, size, vertices);
+	glBufferSubData(bufferType, offset, size, vertices);
 }
 
 template <typename type>
@@ -44,17 +44,17 @@ type* VBO<type>::GetSubData(GLintptr offset, GLsizeiptr size) {
 
 template <typename type>
 type* VBO<type>::Map(GLenum accessType) {
-	return static_cast<type*>(glMapBuffer(GL_ARRAY_BUFFER, accessType));
+	return static_cast<type*>(glMapBuffer(bufferType, accessType));
 }
 
 template <typename type>
 type* VBO<type>::MapRange(GLintptr offset, GLsizeiptr size, GLbitfield accessType) {
-	return static_cast<type*>(glMapBufferRange(GL_ARRAY_BUFFER, offset, size, accessType));
+	return static_cast<type*>(glMapBufferRange(bufferType, offset, size, accessType));
 }
 
 template <typename type>
 void VBO<type>::Unmap() {
-	glUnmapBuffer(GL_ARRAY_BUFFER);
+	glUnmapBuffer(bufferType);
 }
 
 template <typename type>
@@ -64,12 +64,12 @@ void VBO<type>::Bind() {
 
 template <typename type>
 void VBO<type>::Bind(GLuint ID) {
-	glBindBuffer(GL_ARRAY_BUFFER, ID);
+	glBindBuffer(bufferType, ID);
 }
 
 template <typename type>
 void VBO<type>::Unbind() {
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindBuffer(bufferType, 0);
 }
 
 template <typename type>
