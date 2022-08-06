@@ -10,15 +10,14 @@ void Camera::Resize(int width, int height) {
 	Camera::height = height;
 }
 
-void Camera::Matrix(float FOVdeg, float nearPlane, float farPlane, GLuint shader, const char* uniform) {
+#ifdef GL_API_GLAD_OPENGL_3
+void Camera::Matrix(float FOVdeg, float nearPlane, float farPlane, GLuint shader, const GLchar* uniform) {
 	glm::mat4 view = glm::mat4(1.0f);
 	glm::mat4 projection = glm::mat4(1.0f);
 
 	view = glm::lookAt(Position, Position + Orientation, Up);
-	projection = glm::perspective(glm::radians(FOVdeg), (float)width / height, nearPlane, farPlane);
+	projection = glm::perspective(glm::radians(FOVdeg), static_cast<float>(width) / static_cast<float>(height), nearPlane, farPlane);
 
-	#ifdef GL_API_GLAD_OPENGL_3
-	// Make it so that it returns this to be used in a UBO instead
 	glUniformMatrix4fv(glGetUniformLocation(shader, uniform), 1, GL_FALSE, glm::value_ptr(projection * view));
-	#endif
 }
+#endif

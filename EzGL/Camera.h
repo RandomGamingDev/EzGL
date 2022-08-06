@@ -18,7 +18,9 @@ public:
 
 	void Resize(int width, int height, glm::vec3 position);
 	void Resize(int width, int height);
-
-	void Matrix(float FOVdeg, float nearPlane, float farPlane, GLuint shader, const char* uniform);
+	
+	#ifdef GL_API_GLAD_OPENGL_3
+	void Matrix(float FOVdeg, float nearPlane, float farPlane, GLuint shader, const GLchar* uniform);
+	#endif
 };
 #endif
