@@ -48,7 +48,7 @@ void UBO::UnbindRange(GLuint index, GLuint offset, GLsizeiptr size) {
 }
 
 GLint UBO::GetUniformLocation(GLuint shader, const GLchar* uniform) {
-	return glGetUniformLocation(shader, uniform);
+	return glGetUniformBlockIndex(shader, uniform);
 }
 
 void UBO::Delete() {
