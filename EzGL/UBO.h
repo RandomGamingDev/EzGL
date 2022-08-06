@@ -47,7 +47,7 @@ public:
 	void BindRange(GLuint index, GLuint offset, GLsizeiptr size);
 	static void BindRange(GLuint ID, GLuint index, GLuint offset, GLsizeiptr size);
 	static void UnbindRange(GLuint index, GLuint offset, GLsizeiptr size);
-	static void GetUniformLocation(GLuint shader, const GLchar* uniform);
+	static GLint GetUniformLocation(GLuint shader, const GLchar* uniform);
 	#endif
 	void Delete();
 	#ifdef GL_API_GLAD_OPENGL_3
