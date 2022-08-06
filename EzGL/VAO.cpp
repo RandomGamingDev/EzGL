@@ -16,6 +16,7 @@ void VAO::Init() {
 
 void VAO::Init(GLuint* ID) {
 	glGenVertexArrays(1, ID);
+	Bind(*ID);
 }
 
 void VAO::Bind() {
