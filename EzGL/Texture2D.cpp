@@ -10,8 +10,9 @@ void Texture2D::TexParameter(GLenum parameter, GLint value) {
 	glTexParameteri(bufferType, parameter, value);
 }
 
+#include <iostream>
+
 void Texture2D::TexUnit(GLuint shader, const char* uniform, GLint unit) {
-	glUseProgram(ID);
 	glUniform1i(glGetUniformLocation(shader, uniform), unit);
 }
 

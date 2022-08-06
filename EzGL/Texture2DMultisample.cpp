@@ -37,7 +37,6 @@ void Texture2DMultisample::TexParameter(GLenum parameter, GLint value) {
 }
 
 void Texture2DMultisample::TexUnit(GLuint shader, const char* uniform, GLint unit) {
-	glUseProgram(ID);
 	glUniform1i(glGetUniformLocation(shader, uniform), unit);
 }
 

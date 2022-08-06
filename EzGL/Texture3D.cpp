@@ -11,7 +11,6 @@ void Texture3D::TexParameter(GLenum parameter, GLint value) {
 }
 
 void Texture3D::TexUnit(GLuint shader, const char* uniform, GLint unit) {
-	glUseProgram(ID);
 	glUniform1i(glGetUniformLocation(shader, uniform), unit);
 }
 
