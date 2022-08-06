@@ -47,6 +47,10 @@ void UBO::UnbindRange(GLuint index, GLuint offset, GLsizeiptr size) {
 	glBindBufferRange(bufferType, index, 0, offset, size);
 }
 
+void UBO::GetUniformLocation(GLuint shader, const GLchar* uniform) {
+	glGetUniformLocation(shader, uniform);
+}
+
 void UBO::Delete() {
 	Delete(&ID);
 }
