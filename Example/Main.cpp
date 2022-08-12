@@ -18,7 +18,7 @@ const std::string parentDir = std::filesystem::current_path().string();
 bool firstClick = true;
 float speed = 0.1f, sensitivity = 100.0f;
 
-void Inputs(Camera* camera, GLFWwindow* window) {
+void Inputs(Camera* camera, Window* window) {
 	// Handles key inputs
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
 		camera->Position += speed * camera->Orientation;
@@ -142,7 +142,7 @@ GLfloat rectangleVertices[] =
 	-1.0f,  1.0f,  0.0f, 1.0f
 };
 
-void OnResize(GLFWwindow* window, int width, int height) {
+void OnResize(Window* window, int width, int height) {
 	if (width == 0 || height == 0) return;
 	Graphics::Viewport(0, 0, width, height);
 	Graphics* graphics = Graphics::GetWindowPointer<Graphics>(window);
