@@ -1,0 +1,3 @@
+[submodule "JustEzGL"]
+	path = EzGL
+	url = https://github.com/RandomGamingDev/JustEzGL.git
