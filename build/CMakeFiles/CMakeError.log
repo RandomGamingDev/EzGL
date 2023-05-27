@@ -1,0 +1,420 @@
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_e095f/fast && C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\cmTC_e095f.dir\build.make CMakeFiles/cmTC_e095f.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e095f.dir/CMakeCCompilerABI.c.obj
+C:\MinGW\bin\gcc.exe   -v -o CMakeFiles\cmTC_e095f.dir\CMakeCCompilerABI.c.obj -c "C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCCompilerABI.c"
+Using built-in specs.
+COLLECT_GCC=C:\MinGW\bin\gcc.exe
+Target: mingw32
+Configured with: ../src/gcc-6.3.0/configure --build=x86_64-pc-linux-gnu --host=mingw32 --target=mingw32 --with-gmp=/mingw --with-mpfr --with-mpc=/mingw --with-isl=/mingw --prefix=/mingw --disable-win32-registry --with-arch=i586 --with-tune=generic --enable-languages=c,c++,objc,obj-c++,fortran,ada --with-pkgversion='MinGW.org GCC-6.3.0-1' --enable-static --enable-shared --enable-threads --with-dwarf2 --disable-sjlj-exceptions --enable-version-specific-runtime-libs --with-libiconv-prefix=/mingw --with-libintl-prefix=/mingw --enable-libstdcxx-debug --enable-libgomp --disable-libvtv --enable-nls
+Thread model: win32
+gcc version 6.3.0 (MinGW.org GCC-6.3.0-1) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_e095f.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i586'
+ c:/mingw/bin/../libexec/gcc/mingw32/6.3.0/cc1.exe -quiet -v -iprefix c:\mingw\bin\../lib/gcc/mingw32/6.3.0/ C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=i586 -auxbase-strip CMakeFiles\cmTC_e095f.dir\CMakeCCompilerABI.c.obj -version -o C:\Users\ethan\AppData\Local\Temp\ccds6N6k.s
+GNU C11 (MinGW.org GCC-6.3.0-1) version 6.3.0 (mingw32)
+	compiled by GNU C version 6.3.0, GMP version 6.1.2, MPFR version 3.1.5, MPC version 1.0.3, isl version 0.15
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring duplicate directory "c:/mingw/lib/gcc/../../lib/gcc/mingw32/6.3.0/include"
+ignoring duplicate directory "/mingw/lib/gcc/mingw32/6.3.0/../../../../include"
+ignoring duplicate directory "c:/mingw/lib/gcc/../../include"
+ignoring duplicate directory "c:/mingw/lib/gcc/../../lib/gcc/mingw32/6.3.0/include-fixed"
+ignoring duplicate directory "c:/mingw/lib/gcc/../../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"
+ignoring duplicate directory "/mingw/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include
+ c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include
+ c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed
+ c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include
+End of search list.
+GNU C11 (MinGW.org GCC-6.3.0-1) version 6.3.0 (mingw32)
+	compiled by GNU C version 6.3.0, GMP version 6.1.2, MPFR version 3.1.5, MPC version 1.0.3, isl version 0.15
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 384cad586f05ed581a9c068b2f18b408
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_e095f.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i586'
+ c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../../mingw32/bin/as.exe -v -o CMakeFiles\cmTC_e095f.dir\CMakeCCompilerABI.c.obj C:\Users\ethan\AppData\Local\Temp\ccds6N6k.s
+GNU assembler version 2.28 (mingw32) using BFD version (GNU Binutils) 2.28
+COMPILER_PATH=c:/mingw/bin/../libexec/gcc/mingw32/6.3.0/;c:/mingw/bin/../libexec/gcc/;c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../../mingw32/bin/
+LIBRARY_PATH=c:/mingw/bin/../lib/gcc/mingw32/6.3.0/;c:/mingw/bin/../lib/gcc/;c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../../mingw32/lib/;c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_e095f.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i586'
+Linking C executable cmTC_e095f.exe
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_e095f.dir\link.txt --verbose=1
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_e095f.dir/objects.a
+C:\MinGW\bin\ar.exe qc CMakeFiles\cmTC_e095f.dir/objects.a @CMakeFiles\cmTC_e095f.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe -s USE_GLFW=3 -v -Wl,--whole-archive CMakeFiles\cmTC_e095f.dir/objects.a -Wl,--no-whole-archive -o cmTC_e095f.exe -Wl,--out-implib,libcmTC_e095f.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+gcc.exe: error: USE_GLFW=3: No such file or directory
+Using built-in specs.
+COLLECT_GCC=C:\MinGW\bin\gcc.exe
+COLLECT_LTO_WRAPPER=c:/mingw/bin/../libexec/gcc/mingw32/6.3.0/lto-wrapper.exe
+Target: mingw32
+Configured with: ../src/gcc-6.3.0/configure --build=x86_64-pc-linux-gnu --host=mingw32 --target=mingw32 --with-gmp=/mingw --with-mpfr --with-mpc=/mingw --with-isl=/mingw --prefix=/mingw --disable-win32-registry --with-arch=i586 --with-tune=generic --enable-languages=c,c++,objc,obj-c++,fortran,ada --with-pkgversion='MinGW.org GCC-6.3.0-1' --enable-static --enable-shared --enable-threads --with-dwarf2 --disable-sjlj-exceptions --enable-version-specific-runtime-libs --with-libiconv-prefix=/mingw --with-libintl-prefix=/mingw --enable-libstdcxx-debug --enable-libgomp --disable-libvtv --enable-nls
+Thread model: win32
+gcc version 6.3.0 (MinGW.org GCC-6.3.0-1) 
+CMakeFiles\cmTC_e095f.dir\build.make:98: recipe for target 'cmTC_e095f.exe' failed
+mingw32-make.exe[1]: *** [cmTC_e095f.exe] Error 1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_e095f/fast' failed
+mingw32-make.exe: *** [cmTC_e095f/fast] Error 2
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_54e45/fast && C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\cmTC_54e45.dir\build.make CMakeFiles/cmTC_54e45.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_54e45.dir/testCCompiler.c.obj
+C:\MinGW\bin\gcc.exe    -o CMakeFiles\cmTC_54e45.dir\testCCompiler.c.obj -c C:\Users\ethan\git-repos\EzGL\build\CMakeFiles\CMakeTmp\testCCompiler.c
+Linking C executable cmTC_54e45.exe
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_54e45.dir\link.txt --verbose=1
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_54e45.dir/objects.a
+C:\MinGW\bin\ar.exe qc CMakeFiles\cmTC_54e45.dir/objects.a @CMakeFiles\cmTC_54e45.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe -s USE_GLFW=3  -Wl,--whole-archive CMakeFiles\cmTC_54e45.dir/objects.a -Wl,--no-whole-archive -o cmTC_54e45.exe -Wl,--out-implib,libcmTC_54e45.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_54e45.dir\linklibs.rsp
+gcc.exe: error: USE_GLFW=3: No such file or directory
+CMakeFiles\cmTC_54e45.dir\build.make:99: recipe for target 'cmTC_54e45.exe' failed
+mingw32-make.exe[1]: *** [cmTC_54e45.exe] Error 1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_54e45/fast' failed
+mingw32-make.exe: *** [cmTC_54e45/fast] Error 2
+
+
+
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_171ef/fast && C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\cmTC_171ef.dir\build.make CMakeFiles/cmTC_171ef.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_171ef.dir/CMakeCCompilerABI.c.obj
+C:\MinGW\bin\gcc.exe   -v -o CMakeFiles\cmTC_171ef.dir\CMakeCCompilerABI.c.obj -c "C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCCompilerABI.c"
+Using built-in specs.
+COLLECT_GCC=C:\MinGW\bin\gcc.exe
+Target: mingw32
+Configured with: ../src/gcc-6.3.0/configure --build=x86_64-pc-linux-gnu --host=mingw32 --target=mingw32 --with-gmp=/mingw --with-mpfr --with-mpc=/mingw --with-isl=/mingw --prefix=/mingw --disable-win32-registry --with-arch=i586 --with-tune=generic --enable-languages=c,c++,objc,obj-c++,fortran,ada --with-pkgversion='MinGW.org GCC-6.3.0-1' --enable-static --enable-shared --enable-threads --with-dwarf2 --disable-sjlj-exceptions --enable-version-specific-runtime-libs --with-libiconv-prefix=/mingw --with-libintl-prefix=/mingw --enable-libstdcxx-debug --enable-libgomp --disable-libvtv --enable-nls
+Thread model: win32
+gcc version 6.3.0 (MinGW.org GCC-6.3.0-1) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_171ef.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i586'
+ c:/mingw/bin/../libexec/gcc/mingw32/6.3.0/cc1.exe -quiet -v -iprefix c:\mingw\bin\../lib/gcc/mingw32/6.3.0/ C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=i586 -auxbase-strip CMakeFiles\cmTC_171ef.dir\CMakeCCompilerABI.c.obj -version -o C:\Users\ethan\AppData\Local\Temp\ccnkmobx.s
+GNU C11 (MinGW.org GCC-6.3.0-1) version 6.3.0 (mingw32)
+	compiled by GNU C version 6.3.0, GMP version 6.1.2, MPFR version 3.1.5, MPC version 1.0.3, isl version 0.15
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring duplicate directory "c:/mingw/lib/gcc/../../lib/gcc/mingw32/6.3.0/include"
+ignoring duplicate directory "/mingw/lib/gcc/mingw32/6.3.0/../../../../include"
+ignoring duplicate directory "c:/mingw/lib/gcc/../../include"
+ignoring duplicate directory "c:/mingw/lib/gcc/../../lib/gcc/mingw32/6.3.0/include-fixed"
+ignoring duplicate directory "c:/mingw/lib/gcc/../../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"
+ignoring duplicate directory "/mingw/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include
+ c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include
+ c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed
+ c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include
+End of search list.
+GNU C11 (MinGW.org GCC-6.3.0-1) version 6.3.0 (mingw32)
+	compiled by GNU C version 6.3.0, GMP version 6.1.2, MPFR version 3.1.5, MPC version 1.0.3, isl version 0.15
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 384cad586f05ed581a9c068b2f18b408
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_171ef.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i586'
+ c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../../mingw32/bin/as.exe -v -o CMakeFiles\cmTC_171ef.dir\CMakeCCompilerABI.c.obj C:\Users\ethan\AppData\Local\Temp\ccnkmobx.s
+GNU assembler version 2.28 (mingw32) using BFD version (GNU Binutils) 2.28
+COMPILER_PATH=c:/mingw/bin/../libexec/gcc/mingw32/6.3.0/;c:/mingw/bin/../libexec/gcc/;c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../../mingw32/bin/
+LIBRARY_PATH=c:/mingw/bin/../lib/gcc/mingw32/6.3.0/;c:/mingw/bin/../lib/gcc/;c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../../mingw32/lib/;c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_171ef.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i586'
+Linking C executable cmTC_171ef.exe
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_171ef.dir\link.txt --verbose=1
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_171ef.dir/objects.a
+C:\MinGW\bin\ar.exe qc CMakeFiles\cmTC_171ef.dir/objects.a @CMakeFiles\cmTC_171ef.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe -s USE_GLFW=3 -v -Wl,--whole-archive CMakeFiles\cmTC_171ef.dir/objects.a -Wl,--no-whole-archive -o cmTC_171ef.exe -Wl,--out-implib,libcmTC_171ef.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+gcc.exe: error: USE_GLFW=3: No such file or directory
+Using built-in specs.
+COLLECT_GCC=C:\MinGW\bin\gcc.exe
+COLLECT_LTO_WRAPPER=c:/mingw/bin/../libexec/gcc/mingw32/6.3.0/lto-wrapper.exe
+Target: mingw32
+Configured with: ../src/gcc-6.3.0/configure --build=x86_64-pc-linux-gnu --host=mingw32 --target=mingw32 --with-gmp=/mingw --with-mpfr --with-mpc=/mingw --with-isl=/mingw --prefix=/mingw --disable-win32-registry --with-arch=i586 --with-tune=generic --enable-languages=c,c++,objc,obj-c++,fortran,ada --with-pkgversion='MinGW.org GCC-6.3.0-1' --enable-static --enable-shared --enable-threads --with-dwarf2 --disable-sjlj-exceptions --enable-version-specific-runtime-libs --with-libiconv-prefix=/mingw --with-libintl-prefix=/mingw --enable-libstdcxx-debug --enable-libgomp --disable-libvtv --enable-nls
+Thread model: win32
+gcc version 6.3.0 (MinGW.org GCC-6.3.0-1) 
+CMakeFiles\cmTC_171ef.dir\build.make:98: recipe for target 'cmTC_171ef.exe' failed
+mingw32-make.exe[1]: *** [cmTC_171ef.exe] Error 1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_171ef/fast' failed
+mingw32-make.exe: *** [cmTC_171ef/fast] Error 2
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_e843f/fast && C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\cmTC_e843f.dir\build.make CMakeFiles/cmTC_e843f.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e843f.dir/testCCompiler.c.obj
+C:\MinGW\bin\gcc.exe    -o CMakeFiles\cmTC_e843f.dir\testCCompiler.c.obj -c C:\Users\ethan\git-repos\EzGL\build\CMakeFiles\CMakeTmp\testCCompiler.c
+Linking C executable cmTC_e843f.exe
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_e843f.dir\link.txt --verbose=1
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_e843f.dir/objects.a
+C:\MinGW\bin\ar.exe qc CMakeFiles\cmTC_e843f.dir/objects.a @CMakeFiles\cmTC_e843f.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe -s USE_GLFW=3  -Wl,--whole-archive CMakeFiles\cmTC_e843f.dir/objects.a -Wl,--no-whole-archive -o cmTC_e843f.exe -Wl,--out-implib,libcmTC_e843f.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_e843f.dir\linklibs.rsp
+gcc.exe: error: USE_GLFW=3: No such file or directory
+CMakeFiles\cmTC_e843f.dir\build.make:99: recipe for target 'cmTC_e843f.exe' failed
+mingw32-make.exe[1]: *** [cmTC_e843f.exe] Error 1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_e843f/fast' failed
+mingw32-make.exe: *** [cmTC_e843f/fast] Error 2
+
+
+
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_a7e6f/fast && C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\cmTC_a7e6f.dir\build.make CMakeFiles/cmTC_a7e6f.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a7e6f.dir/CMakeCCompilerABI.c.obj
+C:\MinGW\bin\gcc.exe   -v -o CMakeFiles\cmTC_a7e6f.dir\CMakeCCompilerABI.c.obj -c "C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCCompilerABI.c"
+Using built-in specs.
+COLLECT_GCC=C:\MinGW\bin\gcc.exe
+Target: mingw32
+Configured with: ../src/gcc-6.3.0/configure --build=x86_64-pc-linux-gnu --host=mingw32 --target=mingw32 --with-gmp=/mingw --with-mpfr --with-mpc=/mingw --with-isl=/mingw --prefix=/mingw --disable-win32-registry --with-arch=i586 --with-tune=generic --enable-languages=c,c++,objc,obj-c++,fortran,ada --with-pkgversion='MinGW.org GCC-6.3.0-1' --enable-static --enable-shared --enable-threads --with-dwarf2 --disable-sjlj-exceptions --enable-version-specific-runtime-libs --with-libiconv-prefix=/mingw --with-libintl-prefix=/mingw --enable-libstdcxx-debug --enable-libgomp --disable-libvtv --enable-nls
+Thread model: win32
+gcc version 6.3.0 (MinGW.org GCC-6.3.0-1) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_a7e6f.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i586'
+ c:/mingw/bin/../libexec/gcc/mingw32/6.3.0/cc1.exe -quiet -v -iprefix c:\mingw\bin\../lib/gcc/mingw32/6.3.0/ C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=i586 -auxbase-strip CMakeFiles\cmTC_a7e6f.dir\CMakeCCompilerABI.c.obj -version -o C:\Users\ethan\AppData\Local\Temp\ccvMx3xX.s
+GNU C11 (MinGW.org GCC-6.3.0-1) version 6.3.0 (mingw32)
+	compiled by GNU C version 6.3.0, GMP version 6.1.2, MPFR version 3.1.5, MPC version 1.0.3, isl version 0.15
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring duplicate directory "c:/mingw/lib/gcc/../../lib/gcc/mingw32/6.3.0/include"
+ignoring duplicate directory "/mingw/lib/gcc/mingw32/6.3.0/../../../../include"
+ignoring duplicate directory "c:/mingw/lib/gcc/../../include"
+ignoring duplicate directory "c:/mingw/lib/gcc/../../lib/gcc/mingw32/6.3.0/include-fixed"
+ignoring duplicate directory "c:/mingw/lib/gcc/../../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"
+ignoring duplicate directory "/mingw/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include
+ c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include
+ c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed
+ c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include
+End of search list.
+GNU C11 (MinGW.org GCC-6.3.0-1) version 6.3.0 (mingw32)
+	compiled by GNU C version 6.3.0, GMP version 6.1.2, MPFR version 3.1.5, MPC version 1.0.3, isl version 0.15
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 384cad586f05ed581a9c068b2f18b408
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_a7e6f.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i586'
+ c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../../mingw32/bin/as.exe -v -o CMakeFiles\cmTC_a7e6f.dir\CMakeCCompilerABI.c.obj C:\Users\ethan\AppData\Local\Temp\ccvMx3xX.s
+GNU assembler version 2.28 (mingw32) using BFD version (GNU Binutils) 2.28
+COMPILER_PATH=c:/mingw/bin/../libexec/gcc/mingw32/6.3.0/;c:/mingw/bin/../libexec/gcc/;c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../../mingw32/bin/
+LIBRARY_PATH=c:/mingw/bin/../lib/gcc/mingw32/6.3.0/;c:/mingw/bin/../lib/gcc/;c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../../mingw32/lib/;c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_a7e6f.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i586'
+Linking C executable cmTC_a7e6f.exe
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_a7e6f.dir\link.txt --verbose=1
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_a7e6f.dir/objects.a
+C:\MinGW\bin\ar.exe qc CMakeFiles\cmTC_a7e6f.dir/objects.a @CMakeFiles\cmTC_a7e6f.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe -s USE_GLFW=3 -v -Wl,--whole-archive CMakeFiles\cmTC_a7e6f.dir/objects.a -Wl,--no-whole-archive -o cmTC_a7e6f.exe -Wl,--out-implib,libcmTC_a7e6f.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+gcc.exe: error: USE_GLFW=3: No such file or directory
+Using built-in specs.
+COLLECT_GCC=C:\MinGW\bin\gcc.exe
+COLLECT_LTO_WRAPPER=c:/mingw/bin/../libexec/gcc/mingw32/6.3.0/lto-wrapper.exe
+Target: mingw32
+Configured with: ../src/gcc-6.3.0/configure --build=x86_64-pc-linux-gnu --host=mingw32 --target=mingw32 --with-gmp=/mingw --with-mpfr --with-mpc=/mingw --with-isl=/mingw --prefix=/mingw --disable-win32-registry --with-arch=i586 --with-tune=generic --enable-languages=c,c++,objc,obj-c++,fortran,ada --with-pkgversion='MinGW.org GCC-6.3.0-1' --enable-static --enable-shared --enable-threads --with-dwarf2 --disable-sjlj-exceptions --enable-version-specific-runtime-libs --with-libiconv-prefix=/mingw --with-libintl-prefix=/mingw --enable-libstdcxx-debug --enable-libgomp --disable-libvtv --enable-nls
+Thread model: win32
+gcc version 6.3.0 (MinGW.org GCC-6.3.0-1) 
+CMakeFiles\cmTC_a7e6f.dir\build.make:98: recipe for target 'cmTC_a7e6f.exe' failed
+mingw32-make.exe[1]: *** [cmTC_a7e6f.exe] Error 1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_a7e6f/fast' failed
+mingw32-make.exe: *** [cmTC_a7e6f/fast] Error 2
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_9de9b/fast && C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\cmTC_9de9b.dir\build.make CMakeFiles/cmTC_9de9b.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9de9b.dir/testCCompiler.c.obj
+C:\MinGW\bin\gcc.exe    -o CMakeFiles\cmTC_9de9b.dir\testCCompiler.c.obj -c C:\Users\ethan\git-repos\EzGL\build\CMakeFiles\CMakeTmp\testCCompiler.c
+Linking C executable cmTC_9de9b.exe
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_9de9b.dir\link.txt --verbose=1
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_9de9b.dir/objects.a
+C:\MinGW\bin\ar.exe qc CMakeFiles\cmTC_9de9b.dir/objects.a @CMakeFiles\cmTC_9de9b.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe -s USE_GLFW=3  -Wl,--whole-archive CMakeFiles\cmTC_9de9b.dir/objects.a -Wl,--no-whole-archive -o cmTC_9de9b.exe -Wl,--out-implib,libcmTC_9de9b.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_9de9b.dir\linklibs.rsp
+gcc.exe: error: USE_GLFW=3: No such file or directory
+CMakeFiles\cmTC_9de9b.dir\build.make:99: recipe for target 'cmTC_9de9b.exe' failed
+mingw32-make.exe[1]: *** [cmTC_9de9b.exe] Error 1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_9de9b/fast' failed
+mingw32-make.exe: *** [cmTC_9de9b/fast] Error 2
+
+
+
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_e7ca9/fast && C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\cmTC_e7ca9.dir\build.make CMakeFiles/cmTC_e7ca9.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e7ca9.dir/CMakeCCompilerABI.c.obj
+C:\MinGW\bin\gcc.exe   -v -o CMakeFiles\cmTC_e7ca9.dir\CMakeCCompilerABI.c.obj -c "C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCCompilerABI.c"
+Using built-in specs.
+COLLECT_GCC=C:\MinGW\bin\gcc.exe
+Target: mingw32
+Configured with: ../src/gcc-6.3.0/configure --build=x86_64-pc-linux-gnu --host=mingw32 --target=mingw32 --with-gmp=/mingw --with-mpfr --with-mpc=/mingw --with-isl=/mingw --prefix=/mingw --disable-win32-registry --with-arch=i586 --with-tune=generic --enable-languages=c,c++,objc,obj-c++,fortran,ada --with-pkgversion='MinGW.org GCC-6.3.0-1' --enable-static --enable-shared --enable-threads --with-dwarf2 --disable-sjlj-exceptions --enable-version-specific-runtime-libs --with-libiconv-prefix=/mingw --with-libintl-prefix=/mingw --enable-libstdcxx-debug --enable-libgomp --disable-libvtv --enable-nls
+Thread model: win32
+gcc version 6.3.0 (MinGW.org GCC-6.3.0-1) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_e7ca9.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i586'
+ c:/mingw/bin/../libexec/gcc/mingw32/6.3.0/cc1.exe -quiet -v -iprefix c:\mingw\bin\../lib/gcc/mingw32/6.3.0/ C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=i586 -auxbase-strip CMakeFiles\cmTC_e7ca9.dir\CMakeCCompilerABI.c.obj -version -o C:\Users\ethan\AppData\Local\Temp\cc22wL1c.s
+GNU C11 (MinGW.org GCC-6.3.0-1) version 6.3.0 (mingw32)
+	compiled by GNU C version 6.3.0, GMP version 6.1.2, MPFR version 3.1.5, MPC version 1.0.3, isl version 0.15
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring duplicate directory "c:/mingw/lib/gcc/../../lib/gcc/mingw32/6.3.0/include"
+ignoring duplicate directory "/mingw/lib/gcc/mingw32/6.3.0/../../../../include"
+ignoring duplicate directory "c:/mingw/lib/gcc/../../include"
+ignoring duplicate directory "c:/mingw/lib/gcc/../../lib/gcc/mingw32/6.3.0/include-fixed"
+ignoring duplicate directory "c:/mingw/lib/gcc/../../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"
+ignoring duplicate directory "/mingw/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include
+ c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include
+ c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed
+ c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include
+End of search list.
+GNU C11 (MinGW.org GCC-6.3.0-1) version 6.3.0 (mingw32)
+	compiled by GNU C version 6.3.0, GMP version 6.1.2, MPFR version 3.1.5, MPC version 1.0.3, isl version 0.15
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 384cad586f05ed581a9c068b2f18b408
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_e7ca9.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i586'
+ c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../../mingw32/bin/as.exe -v -o CMakeFiles\cmTC_e7ca9.dir\CMakeCCompilerABI.c.obj C:\Users\ethan\AppData\Local\Temp\cc22wL1c.s
+GNU assembler version 2.28 (mingw32) using BFD version (GNU Binutils) 2.28
+COMPILER_PATH=c:/mingw/bin/../libexec/gcc/mingw32/6.3.0/;c:/mingw/bin/../libexec/gcc/;c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../../mingw32/bin/
+LIBRARY_PATH=c:/mingw/bin/../lib/gcc/mingw32/6.3.0/;c:/mingw/bin/../lib/gcc/;c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../../mingw32/lib/;c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_e7ca9.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i586'
+Linking C executable cmTC_e7ca9.exe
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_e7ca9.dir\link.txt --verbose=1
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_e7ca9.dir/objects.a
+C:\MinGW\bin\ar.exe qc CMakeFiles\cmTC_e7ca9.dir/objects.a @CMakeFiles\cmTC_e7ca9.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe -s USE_GLFW=3 -v -Wl,--whole-archive CMakeFiles\cmTC_e7ca9.dir/objects.a -Wl,--no-whole-archive -o cmTC_e7ca9.exe -Wl,--out-implib,libcmTC_e7ca9.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+gcc.exe: error: USE_GLFW=3: No such file or directory
+Using built-in specs.
+COLLECT_GCC=C:\MinGW\bin\gcc.exe
+COLLECT_LTO_WRAPPER=c:/mingw/bin/../libexec/gcc/mingw32/6.3.0/lto-wrapper.exe
+Target: mingw32
+Configured with: ../src/gcc-6.3.0/configure --build=x86_64-pc-linux-gnu --host=mingw32 --target=mingw32 --with-gmp=/mingw --with-mpfr --with-mpc=/mingw --with-isl=/mingw --prefix=/mingw --disable-win32-registry --with-arch=i586 --with-tune=generic --enable-languages=c,c++,objc,obj-c++,fortran,ada --with-pkgversion='MinGW.org GCC-6.3.0-1' --enable-static --enable-shared --enable-threads --with-dwarf2 --disable-sjlj-exceptions --enable-version-specific-runtime-libs --with-libiconv-prefix=/mingw --with-libintl-prefix=/mingw --enable-libstdcxx-debug --enable-libgomp --disable-libvtv --enable-nls
+Thread model: win32
+gcc version 6.3.0 (MinGW.org GCC-6.3.0-1) 
+CMakeFiles\cmTC_e7ca9.dir\build.make:98: recipe for target 'cmTC_e7ca9.exe' failed
+mingw32-make.exe[1]: *** [cmTC_e7ca9.exe] Error 1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_e7ca9/fast' failed
+mingw32-make.exe: *** [cmTC_e7ca9/fast] Error 2
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_35098/fast && C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\cmTC_35098.dir\build.make CMakeFiles/cmTC_35098.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_35098.dir/testCCompiler.c.obj
+C:\MinGW\bin\gcc.exe    -o CMakeFiles\cmTC_35098.dir\testCCompiler.c.obj -c C:\Users\ethan\git-repos\EzGL\build\CMakeFiles\CMakeTmp\testCCompiler.c
+Linking C executable cmTC_35098.exe
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_35098.dir\link.txt --verbose=1
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_35098.dir/objects.a
+C:\MinGW\bin\ar.exe qc CMakeFiles\cmTC_35098.dir/objects.a @CMakeFiles\cmTC_35098.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe -s USE_GLFW=3  -Wl,--whole-archive CMakeFiles\cmTC_35098.dir/objects.a -Wl,--no-whole-archive -o cmTC_35098.exe -Wl,--out-implib,libcmTC_35098.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_35098.dir\linklibs.rsp
+gcc.exe: error: USE_GLFW=3: No such file or directory
+CMakeFiles\cmTC_35098.dir\build.make:99: recipe for target 'cmTC_35098.exe' failed
+mingw32-make.exe[1]: *** [cmTC_35098.exe] Error 1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_35098/fast' failed
+mingw32-make.exe: *** [cmTC_35098/fast] Error 2
+
+
+
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_c4c13/fast && C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\cmTC_c4c13.dir\build.make CMakeFiles/cmTC_c4c13.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c4c13.dir/CMakeCCompilerABI.c.obj
+C:\MinGW\bin\gcc.exe   -v -o CMakeFiles\cmTC_c4c13.dir\CMakeCCompilerABI.c.obj -c "C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCCompilerABI.c"
+Using built-in specs.
+COLLECT_GCC=C:\MinGW\bin\gcc.exe
+Target: mingw32
+Configured with: ../src/gcc-6.3.0/configure --build=x86_64-pc-linux-gnu --host=mingw32 --target=mingw32 --with-gmp=/mingw --with-mpfr --with-mpc=/mingw --with-isl=/mingw --prefix=/mingw --disable-win32-registry --with-arch=i586 --with-tune=generic --enable-languages=c,c++,objc,obj-c++,fortran,ada --with-pkgversion='MinGW.org GCC-6.3.0-1' --enable-static --enable-shared --enable-threads --with-dwarf2 --disable-sjlj-exceptions --enable-version-specific-runtime-libs --with-libiconv-prefix=/mingw --with-libintl-prefix=/mingw --enable-libstdcxx-debug --enable-libgomp --disable-libvtv --enable-nls
+Thread model: win32
+gcc version 6.3.0 (MinGW.org GCC-6.3.0-1) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_c4c13.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i586'
+ c:/mingw/bin/../libexec/gcc/mingw32/6.3.0/cc1.exe -quiet -v -iprefix c:\mingw\bin\../lib/gcc/mingw32/6.3.0/ C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=i586 -auxbase-strip CMakeFiles\cmTC_c4c13.dir\CMakeCCompilerABI.c.obj -version -o C:\Users\ethan\AppData\Local\Temp\cccZytv9.s
+GNU C11 (MinGW.org GCC-6.3.0-1) version 6.3.0 (mingw32)
+	compiled by GNU C version 6.3.0, GMP version 6.1.2, MPFR version 3.1.5, MPC version 1.0.3, isl version 0.15
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring duplicate directory "c:/mingw/lib/gcc/../../lib/gcc/mingw32/6.3.0/include"
+ignoring duplicate directory "/mingw/lib/gcc/mingw32/6.3.0/../../../../include"
+ignoring duplicate directory "c:/mingw/lib/gcc/../../include"
+ignoring duplicate directory "c:/mingw/lib/gcc/../../lib/gcc/mingw32/6.3.0/include-fixed"
+ignoring duplicate directory "c:/mingw/lib/gcc/../../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"
+ignoring duplicate directory "/mingw/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include
+ c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include
+ c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed
+ c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include
+End of search list.
+GNU C11 (MinGW.org GCC-6.3.0-1) version 6.3.0 (mingw32)
+	compiled by GNU C version 6.3.0, GMP version 6.1.2, MPFR version 3.1.5, MPC version 1.0.3, isl version 0.15
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 384cad586f05ed581a9c068b2f18b408
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_c4c13.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i586'
+ c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../../mingw32/bin/as.exe -v -o CMakeFiles\cmTC_c4c13.dir\CMakeCCompilerABI.c.obj C:\Users\ethan\AppData\Local\Temp\cccZytv9.s
+GNU assembler version 2.28 (mingw32) using BFD version (GNU Binutils) 2.28
+COMPILER_PATH=c:/mingw/bin/../libexec/gcc/mingw32/6.3.0/;c:/mingw/bin/../libexec/gcc/;c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../../mingw32/bin/
+LIBRARY_PATH=c:/mingw/bin/../lib/gcc/mingw32/6.3.0/;c:/mingw/bin/../lib/gcc/;c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../../mingw32/lib/;c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_c4c13.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i586'
+Linking C executable cmTC_c4c13.exe
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_c4c13.dir\link.txt --verbose=1
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_c4c13.dir/objects.a
+C:\MinGW\bin\ar.exe qc CMakeFiles\cmTC_c4c13.dir/objects.a @CMakeFiles\cmTC_c4c13.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe -sUSE_GLFW=3 -v -Wl,--whole-archive CMakeFiles\cmTC_c4c13.dir/objects.a -Wl,--no-whole-archive -o cmTC_c4c13.exe -Wl,--out-implib,libcmTC_c4c13.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+Using built-in specs.
+COLLECT_GCC=C:\MinGW\bin\gcc.exe
+COLLECT_LTO_WRAPPER=c:/mingw/bin/../libexec/gcc/mingw32/6.3.0/lto-wrapper.exe
+gcc.exe: error: unrecognized command line option '-sUSE_GLFW=3'
+Target: mingw32
+Configured with: ../src/gcc-6.3.0/configure --build=x86_64-pc-linux-gnu --host=mingw32 --target=mingw32 --with-gmp=/mingw --with-mpfr --with-mpc=/mingw --with-isl=/mingw --prefix=/mingw --disable-win32-registry --with-arch=i586 --with-tune=generic --enable-languages=c,c++,objc,obj-c++,fortran,ada --with-pkgversion='MinGW.org GCC-6.3.0-1' --enable-static --enable-shared --enable-threads --with-dwarf2 --disable-sjlj-exceptions --enable-version-specific-runtime-libs --with-libiconv-prefix=/mingw --with-libintl-prefix=/mingw --enable-libstdcxx-debug --enable-libgomp --disable-libvtv --enable-nls
+Thread model: win32
+gcc version 6.3.0 (MinGW.org GCC-6.3.0-1) 
+CMakeFiles\cmTC_c4c13.dir\build.make:98: recipe for target 'cmTC_c4c13.exe' failed
+mingw32-make.exe[1]: *** [cmTC_c4c13.exe] Error 1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_c4c13/fast' failed
+mingw32-make.exe: *** [cmTC_c4c13/fast] Error 2
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_855dd/fast && C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\cmTC_855dd.dir\build.make CMakeFiles/cmTC_855dd.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_855dd.dir/testCCompiler.c.obj
+C:\MinGW\bin\gcc.exe    -o CMakeFiles\cmTC_855dd.dir\testCCompiler.c.obj -c C:\Users\ethan\git-repos\EzGL\build\CMakeFiles\CMakeTmp\testCCompiler.c
+Linking C executable cmTC_855dd.exe
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_855dd.dir\link.txt --verbose=1
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_855dd.dir/objects.a
+C:\MinGW\bin\ar.exe qc CMakeFiles\cmTC_855dd.dir/objects.a @CMakeFiles\cmTC_855dd.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe -sUSE_GLFW=3  -Wl,--whole-archive CMakeFiles\cmTC_855dd.dir/objects.a -Wl,--no-whole-archive -o cmTC_855dd.exe -Wl,--out-implib,libcmTC_855dd.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_855dd.dir\linklibs.rsp
+gcc.exe: error: unrecognized command line option '-sUSE_GLFW=3'
+CMakeFiles\cmTC_855dd.dir\build.make:99: recipe for target 'cmTC_855dd.exe' failed
+mingw32-make.exe[1]: *** [cmTC_855dd.exe] Error 1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/ethan/git-repos/EzGL/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_855dd/fast' failed
+mingw32-make.exe: *** [cmTC_855dd/fast] Error 2
+
+
+

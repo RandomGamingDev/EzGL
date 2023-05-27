@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_6c804.dir/objects.a
+C:\MinGW\bin\ar.exe qc CMakeFiles\cmTC_6c804.dir/objects.a @CMakeFiles\cmTC_6c804.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe -sUSE_GLFW=3 -v -Wl,--whole-archive CMakeFiles\cmTC_6c804.dir/objects.a -Wl,--no-whole-archive -o cmTC_6c804.exe -Wl,--out-implib,libcmTC_6c804.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
