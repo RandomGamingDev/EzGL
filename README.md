@@ -1,10 +1,10 @@
 # EzGL
 
-### A powerful graphics library designed to abstract away writing graphics code at 0 cost. Spend time building beautiful, lightway, easy to use, powerful graphics, not fighting the graphics API. (remember to clone this project with --recursive)
+### A powerful graphics library designed to abstract away writing graphics code at 0 cost. Spend time building beautiful, lightway, easy to use, powerful graphics, not fighting the graphics API.
 
 There currently isn't any direct documentation since the header files + OpenGL documentation should be enough since EzGL is designed to be very very similar to them except C++ and with an extra layer so that different APIs can be used too.
 
-Compile this with CMake. (This comes with a demo of how you can use this library and its different features this in the Example subdirectory, for which you'll have to create a test.png file a directory named Textures in the directory next to the executable for the texture to show and put the shaders in the Shaders subdirectory next to the executable to disable the results from the 1st window in the demo)
+First, clone this project with git and using the --recursive argument. Compile this with CMake. (This comes with a demo of how you can use this library and its different features this in the Example subdirectory, for which you'll have to create a test.png file a directory named Textures in the directory next to the executable for the texture to show and put the shaders in the Shaders subdirectory next to the executable to disable the results from the 1st window in the demo)
 
 The default graphics library for this is glad
 The default window API for this is glfw
