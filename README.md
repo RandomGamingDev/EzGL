@@ -1,6 +1,6 @@
 # EzGL
 
-### A powerful graphics library designed to abstract away writing graphics code at 0 cost. Spend time building beautiful, lightway, easy to use, powerful graphics, not fighting the graphics API. 
+### A powerful graphics library designed to abstract away writing graphics code at 0 cost. Spend time building beautiful, lightway, easy to use, powerful graphics, not fighting the graphics API. (remember to clone this project with --recursive)
 
 There currently isn't any direct documentation since the header files + OpenGL documentation should be enough since EzGL is designed to be very very similar to them except C++ and with an extra layer so that different APIs can be used too.
 
